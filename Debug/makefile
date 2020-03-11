@@ -4,7 +4,8 @@
 
 -include ../makefile.init
 
-RM := rm -rf
+#RM := rm -rf
+RM = /bin/rm -f
 
 # All of the sources participating in the build are defined here
 -include sources.mk
@@ -34,6 +35,8 @@ endif
 endif
 
 -include ../makefile.defs
+GTESTLIBPATH=$(GTEST_DIR)/make
+GTESTLIBS = $(GTESTLIBPATH)/libgtest.a $(GTESTLIBPATH)/libgtest_main.a
 
 # Add inputs and outputs from these tool invocations to the build variables 
 
@@ -44,7 +47,7 @@ all: helloc
 helloc: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MacOS X C++ Linker'
-	g++ -L/usr/local/lib -Wall -o "helloc" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -I -L/usr/local/lib -Wall -o "helloc" $(OBJS) $(USER_OBJS) $(LIBS) -pthread
 	@echo 'Finished building target: $@'
 	@echo ' '
 
