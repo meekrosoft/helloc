@@ -1,0 +1,12 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.o
+
+# Executables
+helloc
+
+*~
+
+
