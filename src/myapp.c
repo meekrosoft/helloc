@@ -16,8 +16,8 @@ int filter_len(){ return (BUFFER_SIZE + writeIdx - readIdx) % BUFFER_SIZE; }
 
 void filter_add(int val) {
 	my_filter[writeIdx] = val;
-	writeIdx = (writeIdx+1) & BUFFER_SIZE-1;
-	if(writeIdx == readIdx) readIdx = (readIdx+1) & BUFFER_SIZE-1;
+	writeIdx = (writeIdx+1) & (BUFFER_SIZE-1);
+	if(writeIdx == readIdx) readIdx = (readIdx+1) & (BUFFER_SIZE-1);
 }
 
 #ifndef TESTING
